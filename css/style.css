@@ -1,0 +1,546 @@
+/* ********************************************** */
+/* HEADER */
+/* ********************************************** */
+.logo {
+  height: 2.2rem;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #fdf2e9;
+  /* Because we want to be sticky later! i.e we dont want header to move*/
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+/* ********************************************** */
+/* HERO */
+/* ********************************************** */
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0; /*top,left,bottom,right*/
+}
+
+.hero {
+  max-width: 130rem;
+  margin: 0 auto; /*to center horizontally*/
+  padding: 0 3.2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 9.6rem;
+}
+
+.hero-img {
+  width: 100%; /*wrt parent container , and will be flexible image*/
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.delivered-meals {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 8rem;
+}
+.delivered-imgs {
+  display: flex;
+}
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%; /*to make the images round*/
+  margin-right: -1.6rem; /*To collapse the images on each other*/
+  border: 3px solid #fdf2e9;
+}
+.delivered-imgs img:last-child {
+  margin: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+/* ********************************************** */
+/* NAVIGATION */
+/* ********************************************** */
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3sec;
+  /* The above property to be used only on original state */
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+/* below is the end selector, if we write it with space between two classes it will be descendants selector {.main-nav-link. nav-cta:link} 
+
+{.main-nav-link.nav-cta:link} this is the end selector*/
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  /* we have above used the px ,we used px only for things that we dont want to scale up and down */
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #cf711f;
+}
+
+/* ********************************************** */
+/*FEATURED IN SECTION */
+
+/* we wanted this section just to have the supporting role in our website */
+/* ********************************************** */
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center; /*To center the "as featured in" heading*/
+  margin-bottom: 2.4rem;
+  color: #999;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+.logos img {
+  height: 3.2rem;
+  /* below property to be used only on images */
+  filter: brightness(0); /*will make the images of logos completely black*/
+  opacity: 50%;
+}
+
+/* ********************************************** */
+/* HOW IT WORKS SECTION */
+/* ********************************************** */
+.section-how {
+  padding: 9.6rem 0; /*topBottom leftRight*/
+}
+.step-img-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: ""; /*content property is mandatory(even if its empty give it!!!) ,mandatory in case of pseudo elements in order to actually appear on page*/
+  display: block;
+
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* below property is used to make the pseudo rounded element back of the image since by default it has appeared infront of image, hiding the image*/
+  z-index: -1;
+}
+
+/* below is the pseudo element  and pseudo element cannot be added to images therefore here we have added to the div element  and not an image*/
+.step-img-box::before {
+  width: 60%;
+  /* height: 60%; */
+  /* 60% of parent element width */
+  padding-bottom: 60%;
+  background-color: #fdf2e9;
+}
+/* we can use before on specific element only ""ONCE"" therefore we have used after pseudo element */
+
+.step-img-box::after {
+  width: 50%;
+  padding-bottom: 45%;
+  background-color: #fae5d3;
+  z-index: -1;
+}
+
+.step-img {
+  width: 30%; /*dimension wrt to the parent element*/
+}
+.step-number {
+  font-size: 9.8rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+/* ********************************************** */
+/* MEALS SECTION */
+/* ********************************************** */
+.section-meals {
+  padding: 9.6rem 0; /*topBottom leftRight*/
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.1rem;
+  /* since image is laying on top of the element ,it also starts to overflow the element there we set the overflow to hidden*/
+  overflow: hidden;
+
+  /* as the meal element hovered we want some animation and animation is given to the ORIGINAL STATE */
+  transition: all 0.4s;
+  /* The bigger the element the longer(in term s of seconds) we can animate it */
+}
+.meal:hover {
+  /* we want the effect that whenever we hover over the element we want the entire element to move up a little bit
+  */
+
+  /* transform: translate(2rem, 2rem); 
+                            X  Y
+     */
+  transform: translateY(-1.2rem);
+
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+.tag--vegan {
+  background-color: #94d82d;
+}
+.tag--paleo {
+  background-color: #ffd43b;
+}
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.meal-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.meal-img {
+  width: 100%;
+}
+.meal-icon {
+  /* height: 2.4rem;
+  width: 2.4rem; */
+  font-size: 2.4rem;
+  color: #e67e22;
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/* ********************************************** */
+/* TESTIMONIALS SECTION */
+/* ********************************************** */
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-columns: 50fr 50fr; */
+  /* both uncommented above lines represents the same meaning */
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+}
+.testimonials-container {
+  padding: 9.6rem 0; /*topBottom leftRight*/
+}
+.testimonials {
+  /* here we may use the reusable grid that we have made ,but probably the space there is not ideal and it is more likely for the overall page layout */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  /* we didnt add the unit to the line-height property because it is the multiplier to the font-size then that would be the line-height */
+  margin-bottom: 1.6rem;
+}
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+/* After adding the 12 images we noticed that there is the small gap below all the images that is because the images are inline elements by default then we wnat to make them block level element*/
+.gallery-item img {
+  display: block;
+  /* Due to block level making of images the images are stacked on one another w/o spaces */
+  width: 100%;
+  /* transition applied on original state */
+  transition: all 0.4s;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+.gallery-item img:hover {
+  /* transform: rotate(45deg);
+   */
+  transform: scale(1.1);
+}
+.gallery-item {
+  overflow: hidden;
+}
+/* ********************************************** */
+/*  PRICING SECTION */
+/* ********************************************** */
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 1.1rem;
+  width: 75%;
+}
+.pricing-plan--starter {
+  justify-self: end;
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem; /*Here we are substracting the 2px border from padding*/
+}
+.pricing-plan--complete {
+  padding: 4.8rem;
+  background-color: #fdf2e9;
+  position: relative;
+  /* overflow property is added always on parent element*/
+  overflow: hidden;
+}
+
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  color: #333;
+  transform: rotate(45deg);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+
+.plan-text {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+.plan-sign-up {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: #fdf2e9;
+  padding: 1.6rem;
+  border-radius: 50%;
+  margin-bottom: 3.2rem;
+}
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+/* ********************************************** */
+/*  SECTION CTA */
+/* ********************************************** */
+.section-cta {
+  padding: 9.6rem 0;
+}
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  /* background-image: linear-gradient(90deg, red, #e67e22); */
+  /* background-image: linear-gradient(to right bottom, #cf711f, #e67e22); */
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+
+  /* temp height */
+  height: 50rem;
+
+  /*since the image is overflowing therefore we added the overflow on parent element*/
+  overflow: hidden;
+}
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+.cta .heading-secondary {
+  /* color: #45260a; */
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+.cta-img-box {
+  /* on below property we have overlayed the gradient on image using the background-image property */
+  /* NOTICE here that the image here is not the actual content but a static image just contained in css and not a real content  */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.35),
+      rgba(230, 125, 34, 0.35)
+    ),
+    url("../img/eating.jpg");
+
+  /* ../ is used in file system to go one level back */
+
+  /* ../../ to go two level back in file tree */
+  background-size: cover;
+  background-position: center;
+}
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+.cta-forn label {
+  /* to give its own line */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  /*below property represents that the input sholud inherit the font family from parent */
+  font-family: inherit;
+  color: inherit;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.1);
+  /* horizontally vertical blur colorWithOpacity */
+}
+/*pseudo elements are the elements that does not exist on  page but we can select and style them examples of pseudo elements are first line,first letter,placeholder*/
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta-form select {
+}
+.cta-form button {
+}
+
+.cta *:focus {
+  outline: none; /*to remove the focus state of link or button*/
+
+  box-shadow: 0 0 0 0.8rem rgba(253, 233, 186, 0.5);
+}

@@ -1,0 +1,158 @@
+<div class="test">TEST</div>
+
+
+
+
+html {
+  /* font-size: 10px; */
+  /* after this ,now onwards 1rem=10px; */
+
+  /*Using rem now onwards cause----"By changing the font-size the complete layout is going to be changed"  */
+
+  /* we will not set the font-size like this using the fixed value instead to a percentage of the default font-size of the browser */
+  /* ------------------------------ */
+
+  font-size: 62.5%;
+  /* to want font size to 10px but default is 16px
+  
+  10px/16px=0.625====62.5%
+  It is the percentage of users browser font-size setting
+
+  16*0.625=10
+  18*0.625=11.25
+  12*0.625=7.5
+  */
+}
+
+
+body {
+  font-family: sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+.test {
+  background-color: red;
+
+  /* width: 1000px; */
+
+  /* max-width: 1000px; */
+  /* If the container width is larger than the specified max-width then the width of the element is equal to the specified max-width,
+  
+  if the container width is less than the specified max-width then the width of the element is 100% of the container width*/
+
+  max-width: 50rem;
+  color: #fff;
+  font-size: 2rem;
+  padding: 4rem;
+  /* rem is used in terms of unit it means the root element font-size */
+
+  /* By default 1 rem = 16px;
+                50rem = 50*16=800px   
+                */
+}
+
+
+======================================================================
+links vs buttons
+-links are for navigation(going to another page) and buttons are for action(something happens)
+
+
+
+
+=======================================================================================================================================
+***********reusable grid using different classes:PART 1
+
+
+
+ <section class="section-how container grid grid--2-cols">
+           
+                <div>Test 1</div>
+                <div>Test 2</div>
+                <div>Test 3</div>
+                <div>Test 4</div>
+
+        </section>
+
+        <section class="section-how grid grid--3-cols">
+            <div>Test 1</div>
+            <div>Test 2</div>
+            <div>Test 3</div>
+            <div>Test 4</div>
+
+        </section>
+
+      <section class="section-how grid grid--4-cols">
+            <div>Test 1</div>
+            <div>Test 2</div>
+            <div>Test 3</div>
+            <div>Test 4</div>
+
+        </section>
+
+
+
+
+
+
+
+
+.section-how {
+  padding: 9.6rem 0;
+  background-color: orangered;
+}
+
+.container {
+  /* this container is going to be the element that we always use inorder to center the page */
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 9.6rem;
+}
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.section-how div {
+  padding: 100px;
+  font-size: 50px;
+}
+
+.section-how div:nth-child(1) {
+  background-color: aqua;
+}
+.section-how div:nth-child(2) {
+  background-color: pink;
+}
+.section-how div:nth-child(3) {
+  background-color: violet;
+}
+.section-how div:nth-child(4) {
+  background-color: yellow;
+}
+
+========================================================================================================================================================================================================================================================================================================================
+PART 2
+<section class="section-how">
+            <div class="container grid grid--2-cols">
+                <div>Test 1</div>
+                <div>Test 2</div>
+                <div>Test 3</div>
+                <div>Test 4</div>
+            </div>
+
+        </section>
+/*Just like the above section we want to follow the styling*/
+

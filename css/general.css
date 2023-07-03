@@ -1,0 +1,291 @@
+/*
+---01 TYPOGRAPHY SYSTEM
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+
+font weights :
+default:400
+Medium:500
+sem-bold:600
+Bold:700
+
+
+line-height :
+default: 1
+small:1.05
+medium:1.2
+paragraph default:1.6
+
+letter-spacing:
+-0.5px
+0.75px
+
+
+
+
+
+---02 COLOR
+(tintsAndShadesgenerator) site name
+coolors ---site name
+primary color :#e67e22
+Tints:#fdf2e9 , #fae5d3
+shades:
+Accents:
+Greys:#555 ,#333
+#6F6F6F(lightest grey allowed on #fdf2e9)
+
+
+
+
+---03 IMAGES
+        -unsplash
+        -UI Faces
+
+---04 ICONS
+
+---05 SHADOWS
+
+
+
+
+---06 BORDER-RADIUS
+default:0.9rem
+medium:1.1rem
+
+
+
+----07 WHITE-SPACE
+          SPACING SYSTEM (px)
+                2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+/* below is the global reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /* to want font size of 1rem to 10px but default is 16px
+    
+    10px/16px=0.625====62.5%
+    It is the percentage of users browser font-size setting
+  
+    16*0.625=10
+    18*0.625=11.25
+    12*0.625=7.5
+    */
+}
+
+body {
+  font-family: "rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+/* ********************************************** */
+/* General reusable components */
+/* ********************************************** */
+.container {
+  /* this container is going to be the element that we always use inorder to center the page */
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+/* If the grid is NOT the last child then margin bottom=96px ie 9.6rem  */
+/* :not is the pseudo class */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--center-v {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  margin-bottom: 3.2rem;
+  line-height: 1;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+/* we are calling the link here as button but actuallly we have used the anchor tag and anchor tag has four steps link--visited--hover--active */
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-decoration: none; /*Since its a link and not a button*/
+  border-radius: 9px;
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* to change value of one/multiple property from one value to another we use transition */
+  /* We always put the transition on the original "state" */
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  color: #555;
+
+  /* border: 3px solid #fff; */
+  /* The above solution to hover state will cause the border "form outside the box" */
+
+  /* below is the solution to add the border inside the box , we have basically used the box-shadow trick to replicate the border and then used "inset" */
+  box-shadow: inset 0 0 0 3px #fff;
+  /* using inset keyword the shadow will be added inside the box */
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  /*WHEN ANY ELEMENT IS THE GRID ITEM THEN BY DEFAULT GRID ITEM STRETCH TO OCCUPY THE ENTIRE GRID CELL*/
+  /* and here button is also a grid item  so the button is little bit mis align*/
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  /* currentColor is the keyword that is used to give the underline to the link and the color of underline has same color as of text */
+  padding-bottom: 2px;
+}
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* border-bottom: none; */
+  /* this above property work in case we want to remove the underline in hovered state but it causes the entire layout to jump a little bit like 1px upwards so we used the below property   */
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+/* reusable list */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* select every element and then on element we use focus pseudo class*/
+*:focus {
+  outline: none; /*to remove the focus state of link or button*/
+
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.505);
+}
+
+/* HELPER CLASSES */
+/* below is the helper class that can be used on multiple elements */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+  /* important keyword added in order to enure the priority */
+}
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+.center-text {
+  text-align: center;
+}
+strong {
+  font-weight: 500;
+}
